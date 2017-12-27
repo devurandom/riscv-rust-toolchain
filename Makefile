@@ -65,11 +65,7 @@ cargo_build := $(build_dir)/cargo
 export RUST_TARGET_PATH=$(root_dir)
 export CARGO_HOME=$(cargo_build)
 
-$(sysroot_dir)/bin/cc:
-	mkdir -p $(sysroot_dir)/bin
-	ln -s $(shell which gcc) $(sysroot_dir)/bin/cc
-
-rust-build: $(sysroot_dir)/bin/cc
+rust-build:
   # --disable-manage-submodules
 	cd $(rust_src) && \
 	./configure --enable-debug \
